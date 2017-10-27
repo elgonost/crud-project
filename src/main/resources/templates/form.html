@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Awesome Songs</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+<h1>Add a new song</h1>
+<!--<div layout:fragment="content">-->
+    <form class="form-horizontal" th:object="${song}" th:action="@{/songs/save}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Title: </label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" th:field="*{title}"/>
+                <label th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Artist: </label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" th:field="*{artist}"/>
+                <label th:if="${#fields.hasErrors('artist')}" th:errors="*{artist}">Artist Error</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Album: </label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" th:field="*{album}"/>
+                <label th:if="${#fields.hasErrors('album')}" th:errors="*{album}">Album Error</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+<!--</div>-->
+
+</body>
+</html>

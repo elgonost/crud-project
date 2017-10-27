@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+</head>
+<body>
+    <div th:fragment="header" th:align="center">
+        <div class="topnav">
+            <a class="active" href="#">Home</a>
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+            <a th:href="@{/songs/list}">My Songs</a>
+        </div>
+    </div>
+</body>
+</html>

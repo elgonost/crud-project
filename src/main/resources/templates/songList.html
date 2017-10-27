@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Awesome Songs</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" />
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+<h1>Your Playlist</h1>
+
+<div th:if="${message}">
+    <script>alert("Entry deleted")</script>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Album</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    <tr th:each="s: ${songList}">
+        <td th:text="${s.title}">Title</td>
+        <td th:text="${s.artist}">Artist</td>
+        <td th:text="${s.album}">Album</td>
+        <td><a href="#" th:href="@{/songs/edit/} +${s.id}">edit</a></td>
+        <td><a href="#" th:href="@{/songs/delete/} +${s.id}">delete</a></td>
+    </tr>
+
+</table>
+
+<a th:href="@{/songs/add}">Add new song</a>
+</body>
+</html>
