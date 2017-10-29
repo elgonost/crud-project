@@ -1,26 +1,46 @@
-.topnav {
+.form-container {
+    width: 20%;
+      position: relative;
+      margin: auto;
+      top:auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.songTableContainer {
+      width: 60%;
+      position: relative;
+      margin: auto;
+      top:auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.navigation-bar {
   overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+  background-color: #DCDCDC;
+  border-radius: 4px;
+  padding: 10px;
   font-size: 17px;
+  font-family: "Trebuchet MS"
 }
 
-.topnav a:hover {
-  background-color: #ddd;
+#navigation-container a {
+  display: inline;
+  color: #333333;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+
+}
+
+#navigation-container a:hover {
+  background-color: #bababa;
   color: black;
-}
-
-.topnav a.active {
-    background-color: #4b42f4;
-    color: white;
 }
 
 body>header {
@@ -30,4 +50,109 @@ body>header {
 
 body{
     background: white
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #DCDCDC;
+    color: black;
+    text-align: center;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 17px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+
+
+#songTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+
+    width: 100%;
+}
+
+#songTable td, #songTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+#songTable tr:nth-child(even){background-color: #f2f2f2;}
+
+#songTable tr:hover {background-color: #ddd;}
+
+#songTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #bababa;
+    color: black;
+}
+
+h1 {
+font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+text-align: center;
+}
+
+input[type=text], input[type=password], input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+#button:hover{
+    background-color: #45a049;
+}
+
+
+.form-horizontal {
+border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.indexImage {
+     display: block;
+     margin: 0 auto;
+ }
+
+.error-text {
+    color:red;
 }

@@ -3,13 +3,21 @@
 <head>
 </head>
 <body>
-    <div th:fragment="header" th:align="center">
-        <div class="topnav">
-            <a class="active" href="#">Home</a>
-            <a href="#">Login</a>
-            <a href="#">Register</a>
-            <a th:href="@{/songs/list}">My Songs</a>
+    <div class="header" th:fragment="header" th:align="center">
+        <div class="navigation-bar">
+            <div id="navigation-container">
+                <a th:href="@{/}">Home</a>
+                <a th:if="${session.loggedInUser == null}" th:href="@{/login}">Login</a>
+                <a th:if="${session.loggedInUser == null}" th:href="@{/register}">Register</a>
+                <a th:if="${session.loggedInUser != null}" th:href="@{/songs/list}">My Songs</a>
+                <a th:if="${session.loggedInUser != null}" th:href="@{/songs/add}">Add Song</a>
+                <a th:if="${session.loggedInUser != null}" th:href="@{/logout}">Logout</a>
+                <!--<p>HELLO </p>-->
+                <!--<p th:text="${session.loggedInUser}" th:unless="${session == null}">${loggedInUser.username}</p>-->
+                <!--<p th:if="${session.loggedInUser != null}" th:text="${session.loggedInUser.id}">Static text</p>-->
+            </div>
         </div>
     </div>
+
 </body>
 </html>

@@ -4,7 +4,6 @@ import com.crud.crudproject.Models.Song;
 import com.crud.crudproject.Repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -17,8 +16,8 @@ public class SongService {
         this.songRepository = songRepository;
     }
 
-    public List<Song> list(){
-        return songRepository.findAll();
+    public List<Song> list(Long userId){
+        return songRepository.findByUserId(userId);
     }
 
     public Song save(Song song){

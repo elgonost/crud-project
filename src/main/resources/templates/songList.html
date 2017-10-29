@@ -3,34 +3,39 @@
 <head>
     <title>Awesome Songs</title>
     <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" />
+    <link rel="icon" href="../static/images/music.ico"
+          th:href="@{/images/music.ico}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 </head>
 <body>
-<th:block th:include="fragments/header :: header"></th:block>
-<h1>Your Playlist</h1>
+<div class="container">
+    <th:block th:include="fragments/header :: header"></th:block>
+    <h1 id="heading">My Songs</h1>
 
-<div th:if="${message}">
-    <script>alert("Entry deleted")</script>
+    <div th:if="${message}">
+        <script>alert("Entry deleted")</script>
+    </div>
+    <div class="songTableContainer">
+        <table id="songTable">
+            <tr>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="s: ${songList}">
+                <td th:text="${s.title}">Title</td>
+                <td th:text="${s.artist}">Artist</td>
+                <td th:text="${s.album}">Album</td>
+                <td><a href="#" th:href="@{/songs/edit/} +${s.id}"><i class="material-icons" style="color:black;">edit</i></a></td>
+                <td><a href="#" th:href="@{/songs/delete/} +${s.id}"><i class="material-icons" style="color:black;">delete</i></a></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <th:block th:include="fragments/footer :: footer"></th:block>
 </div>
-
-<table class="table table-striped">
-    <tr>
-        <th>Title</th>
-        <th>Artist</th>
-        <th>Album</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-
-    <tr th:each="s: ${songList}">
-        <td th:text="${s.title}">Title</td>
-        <td th:text="${s.artist}">Artist</td>
-        <td th:text="${s.album}">Album</td>
-        <td><a href="#" th:href="@{/songs/edit/} +${s.id}">edit</a></td>
-        <td><a href="#" th:href="@{/songs/delete/} +${s.id}">delete</a></td>
-    </tr>
-
-</table>
-
-<a th:href="@{/songs/add}">Add new song</a>
 </body>
 </html>

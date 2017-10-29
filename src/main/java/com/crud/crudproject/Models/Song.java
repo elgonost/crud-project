@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     @NotBlank
     private String title;
     @NotBlank
@@ -19,12 +19,23 @@ public class Song {
     @NotBlank
     private String album;
 
+    private Long userId;
 
-    public long getId() {
+    public Song(){}
+
+    public Song(Long id, String title, String artist, String album, Long userId) {
+        this.id = id;
+        this.title = title;
+        this.artist = artist;
+        this.album = album;
+        this.userId = userId;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -52,5 +63,11 @@ public class Song {
         this.album = album;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
 
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }

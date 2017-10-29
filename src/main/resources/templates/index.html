@@ -3,12 +3,14 @@
 <head>
     <title>Awesome Songs</title>
     <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" />
+    <link rel="icon" href="../static/images/music.ico"
+          th:href="@{/images/music.ico}" />
 </head>
 <body>
-<th:block th:include="fragments/header :: header"></th:block>
 <div class="container">
-
-    <h1>Index page</h1>
+    <th:block th:include="fragments/header :: header"></th:block>
+    <h1 id="heading">Welcome to Awesome Songs!</h1>
+    <img class="indexImage" src="../static/images/indexImage.jpg" th:src="@{/images/indexImage.jpg}" alt="Index image" />
     <th:block th:include="fragments/footer :: footer"></th:block>
 </div>
 </body>

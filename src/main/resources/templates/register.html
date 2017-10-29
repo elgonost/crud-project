@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Awesome Songs</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}" />
+    <link rel="icon" href="../static/images/music.ico"
+          th:href="@{/images/music.ico}" />
+</head>
+<body>
+
+<div class="container">
+    <th:block th:include="fragments/header :: header"></th:block>
+    <h1 id="heading">Register</h1>
+    <div class="form-container">
+        <form class="form-horizontal" th:object="${user}" th:action="@{/register}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Username</label>
+                <div class="col-md-10">
+                    <input type="text" class="form-control" th:field="*{username}" placeholder="Enter username"/>
+                    <label class="error-text" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</label>
+                    <label class="error-text" th:if="${duplicate}" th:text="${duplicate}">Username already in use error</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-md-10">
+                    <input type="email" class="form-control" th:field="*{email}" placeholder="Enter email"/>
+                    <label class="error-text" th:if="${#fields.hasErrors('password')}" th:errors="*{email}">Email Error</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Password</label>
+                <div class="col-md-10">
+                    <input type="password" class="form-control" th:field="*{password}" placeholder="Enter password"/>
+                    <label class="error-text" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</label>
+                </div>
+            </div>
+            <button id="button" type="submit" class="btn btn-default">Register</button>
+        </form>
+    </div>
+
+    <th:block th:include="fragments/footer :: footer"></th:block>
+</div>
+
+</body>
+</html>
